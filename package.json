@@ -1,5 +1,5 @@
 {
-  "name": "myvue",
+  "name": "Epidemic-surveillance",
   "version": "1.0.0",
   "description": "A Vue.js project",
   "author": "Russell",
@@ -10,10 +10,15 @@
     "build": "node build/build.js"
   },
   "dependencies": {
-    "axios": "^0.21.1",
+    "axios": "^0.21.4",
+    "body-parser": "^1.19.0",
+    "dayjs": "^1.10.7",
+    "echarts": "^4.9.0",
     "element-ui": "^2.15.3",
+    "express": "^4.17.1",
+    "jsonp": "^0.2.1",
     "vue": "^2.5.2",
-    "vue-axios": "^3.2.4"
+    "vue-axios": "^3.3.7"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
@@ -63,5 +68,16 @@
     "> 1%",
     "last 2 versions",
     "not ie <= 8"
-  ]
+  ],
+  "main": ".postcssrc.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ajhr1234/Epidemic-surveillance.git"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ajhr1234/Epidemic-surveillance/issues"
+  },
+  "homepage": "https://github.com/ajhr1234/Epidemic-surveillance#readme"
 }
