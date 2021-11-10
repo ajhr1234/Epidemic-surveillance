@@ -1,21 +1,25 @@
 <template>
 	<div class="input">
 		<el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
-			<el-form-item label="用户名" prop="user">
+			<el-form-item label="USERNAME" prop="user">
 				<el-input type="username" v-model="ruleForm.user" autocomplete="off" style="width: 550px;"></el-input>
 			</el-form-item>
-			<el-form-item label="密码" prop="pass">
+			<el-form-item label="PASSWORD" prop="pass">
 				<el-input type="password" v-model="ruleForm.pass" autocomplete="off" style="width: 550px;"></el-input>
 			</el-form-item>
-			<el-form-item label="确认密码" prop="checkPass">
+			<el-form-item label="CONFIRM" prop="checkPass">
 				<el-input type="password" v-model="ruleForm.checkPass" autocomplete="off" style="width: 550px;">
 				</el-input>
 			</el-form-item>
+      <br><br><br>
 			<el-form-item>
-				<el-button type="primary" @click="submitForm('ruleForm')">提交</el-button>
-				<el-button @click="resetForm('ruleForm')">重置</el-button>
+				<el-button type="primary" @click="submitForm('ruleForm')">Submit</el-button>
+				<el-button @click="resetForm('ruleForm')">Remark</el-button>
 			</el-form-item>
 		</el-form>
+    <div class="bottom">
+      Already have an account?   <a href="/Login">Sign in</a>
+    </div>
 
 	</div>
 </template>
@@ -28,7 +32,7 @@
 		data() {
 			var validateUser = (rule, value, callback) => {
 				if (value === '') {
-					callback(new Error('请输入用户名'));
+					callback(new Error('Please enter the user name'));
 				} else {
 					callback();
 				}
@@ -36,7 +40,7 @@
 
 			var validatePass = (rule, value, callback) => {
 				if (value === '') {
-					callback(new Error('请输入密码'));
+					callback(new Error('Please enter the password'));
 				} else {
 					if (this.ruleForm.checkPass !== '') {
 						this.$refs.ruleForm.validateField('checkPass');
@@ -46,9 +50,9 @@
 			};
 			var validatePass2 = (rule, value, callback) => {
 				if (value === '') {
-					callback(new Error('请再次输入密码'));
+					callback(new Error('Please confirm your password'));
 				} else if (value !== this.ruleForm.pass) {
-					callback(new Error('两次输入密码不一致!'));
+					callback(new Error('The two passwords are inconsistent!'));
 				} else {
 					callback();
 				}
@@ -115,7 +119,7 @@
 								console.log(err)
 							})
 
-						
+
 
 					} else {
 						console.log('error submit!!');
@@ -133,7 +137,20 @@
 
 <style scoped>
 	.input {
-		margin-top: 100px;
+		margin-top: 200px;
 		float: left;
 	}
+  .bottom {
+    width: 120%;
+    height: 100px;
+    border: 2px 0 0 0;
+    border-top-style: dotted;
+    margin-top: 100px;
+    padding-top: 20px;
+    color: #908e8e;
+  }
+  a {
+    color: #908e8e;
+    font-size: 20px;
+  }
 </style>

@@ -1,16 +1,24 @@
 <template>
 	<div>
 		<header>
-			<div id="we">
-				<h2> Epidemic Surveillance</h2>
+			<div class="head">
+				<div class="logo">
+					<img src="../images/logo.png" alt="">
+				</div>
+				<div class="person">
+					<img src="../images/person.png" alt="">
+				</div>
+				<div id="we">
+					<h2> Epidemic Surveillance</h2>
+				</div>
+				<nav>
+					<router-link class="item" v-for="item in nvaList" :key="item.id" :to=item.url>{{item.name}}
+					</router-link>
+				</nav>
 			</div>
-			<nav>
-				<router-link class="item" v-for="item in nvaList" :key="item.id" :to=item.url>{{item.name}}
-				</router-link>
-			</nav>
+			<router-view class="main"></router-view>
 		</header>
-
-		<router-view class="main"></router-view>
+		</body>
 	</div>
 </template>
 <script>
@@ -18,35 +26,36 @@
 		data() {
 			return {
 				nvaList: [{
-						name: '首页',
+						name: 'Home',
 						id: 0,
-						url: '/content'
+						url: '/'
 					},
 					{
-						name: '疫情分布',
+						name: 'Epidemic distribution',
 						id: 1,
-						url: '/chinaMap'
+						url: '/epidemicMap'
 					},
+          {
+          	name: 'Epidemic trend',
+          	url: '/epidemicTrend',
+          	id: 3,
+          },
 					{
 						name: 'RealTimeNews',
 						url: '/RealTimeNews',
 						id: 2,
 					},
+
 					{
-						name: '疫情趋势',
-						url: '/chinaTrend',
-						id: 3,
-					},
-					{
-						name: '登陆',
-						url: '/Login',
+						name: 'Login_Register',
+						url: '/login_index',
 						id: 4
 					},
-					{
-						name: '注册',
-						url: '/Register',
-						id: 5
-					}
+					// {
+					// 	name: 'Register',
+					// 	url: '/Register',
+					// 	id: 5
+					// }
 				]
 			}
 		},
@@ -54,47 +63,67 @@
 </script>
 <style scoped>
 	header {
-		background-color: #4d4c7d;
-		height: 6rem;
-		line-height: 6rem;
+		margin: 0;
+		padding: 0;
+	}
+
+	.head {
+		position: relative;
+		height: 49px;
+		line-height: 49px;
 		margin-top: -50px;
+		border-bottom: 1px solid #000;
 	}
 
 	nav {
 		display: flex;
 		justify-content: flex-end;
 		/*margin-right: 30px; */
-		font-size: 1rem;
+		font-size: 18px;
 		font-weight: bolder;
-		height: 1rem;
 	}
 
 	.item {
-		color: #fff;
+		color: #000000;
 		margin: auto;
 		text-decoration-line: none;
 		transition: 0.3s;
 		font-weight: 545;
-		font-size: 1.1em;
+		font-size: 18px;
 	}
 
 	.item:hover {
-		color: #b1bdf5;
-
+		color: pink;
+    font-size: 25px;
 	}
 
 	.main {
 		background-color: #fff;
 	}
 
+	.logo {
+		float: left;
+		margin-left: 10px;
+	}
+
+	.person {
+		/* position: absolute; */
+		float: right;
+		right: 10px;
+		width: 50px;
+		height: 50px;
+		margin-right: 10px;
+	}
+
 	#we {
-		color: #fff;
+		color: #000000;
 		float: left;
 		margin-left: 30px;
 		font-style: italic;
-		font-size: 1.5em;
+		font-size: 20px;
 		font-family: Raleway, 'Times New Roman', serif;
-		margin-top: -30px;
-
+		line-height: 2px;
 	}
+
+
 </style>

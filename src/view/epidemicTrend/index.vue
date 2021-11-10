@@ -1,38 +1,31 @@
 <template>
   <body>
+
   <div class="box">
     <div class="pic">
       <img src="../../images/right.gif" >
     </div>
+  <div>
+
       <div class='dataOne'>
         <div class="first">
-        <router-link to='/chinaMap' tag='div' class='china'>
-          <img src="../../images/china.png">
-        </router-link>
+          <router-link to='/chinaTrend' tag='div' class='china'>
+            <img src="../../images/china.png">
+          </router-link>
         </div>
-        <p>China Distribution</p>
+            <p>China Trend</p>
       </div>
 
       <div class='dataTwo'>
         <div class="sec">
-          <router-link to='/worldMap' tag='div' class='world'>
+          <router-link to='/worldTrend' tag='div' class='world'>
             <img src="../../images/world.png" >
           </router-link>
         </div>
-        <p>World Distribution</p>
+        <p>World Trend</p>
       </div>
-
-      <div class="dataThree">
-        <div class="third">
-          <router-link to='/fuJianMap' tag='div' class='fj'>
-            <img src="../../images/fujian.png" >
-          </router-link>
-        </div>
-        <p>Fujian Distribution</p>
-      </div>
-    <!-- </div> -->
     <router-view></router-view>
-
+  </div>
   </div>
   <div class="bottom">
       <div class="gray"></div>
@@ -52,97 +45,80 @@
         </div>
       </div>
   </div>
+
   </body>
 </template>
-
 <script>
+export default {
 
+}
 </script>
 <style scoped>
 
- p {
-   font-size: 30px;
-   color: #707070;
- }
- .pic {
-   margin-top: 150px;
-   margin-left: -100px;
-   float: left;
-   width: 500px;
-   height: 500px;
- }
- .pic img {
-   width: 408px;
-   height: 312px;
- }
- .first:hover {
-   border: 10px #efc4bf solid;
- }
- .sec:hover {
-   border: 10px #efc4bf solid;
- }
- .third:hover {
-   border: 10px #efc4bf solid;
- }
- .dataOne {
-   float: left;
-   margin: 150px 50px 0 -20px;
-   width: 300px;
-   height: 312px;
- }
- .first {
-   width: 300px;
-  border-radius: 100px;
-   height: 250px;
-   border: 3px #efc4bf solid;
+p {
+  font-size: 30px;
+  color: #707070;
+}
+.pic {
+  margin-top: 100px;
+  margin-left: -30px;
+  float: left;
+  width: 500px;
+  height: 500px;
+}
+.pic img {
+  width: 508px;
+  height: 412px;
+}
+.first:hover {
+  border: 10px #efc4bf solid;
+}
+.sec:hover {
+  border: 10px #efc4bf solid;
+}
+.dataOne {
+  float: left;
+  margin: 150px 50px 0 120px;
+  width: 300px;
+  height: 312px;
+}
+.first {
+  width: 300px;
+ border-radius: 100px;
+  height: 250px;
+  border: 3px #efc4bf solid;
 
- }
- .china img {
-   width: 250px;
-   height: 192px;
-   margin-top: 30px;
- }
- .dataTwo {
-   float: left;
-   margin: 150px 50px 0 5px;
-   width: 300px;
-   height: 312px;
- }
- .sec {
-   width: 300px;
-  border-radius: 100px;
-   height: 250px;
-   border: 3px #efc4bf solid;
+}
+.china img {
+  width: 250px;
+  height: 192px;
+  margin-top: 30px;
+}
+.dataTwo {
+  float: right;
+  margin: 150px 150px 0 40px;
+  width: 300px;
+  height: 312px;
+}
+.sec {
+  width: 300px;
+ border-radius: 100px;
+  height: 250px;
+  border: 3px #efc4bf solid;
 
- }
- .world img {
-   width: 280px;
-   height: 164px;
-   margin-top: 50px;
- }
- .dataThree {
-   float: right;
-   margin: 150px 50px 0 -30px;
-   width: 300px;
-   height: 312px;
- }
- .third {
-   width: 300px;
-  border-radius: 100px;
-   height: 250px;
-   border: 3px #efc4bf solid;
+}
+.world img {
+  width: 280px;
+  height: 164px;
+  margin-top: 50px;
+}
 
- }
- .fj img {
-   width: 205px;
-   height: 250px;
- }
 .bottom {
   position: relative;
   height: 130px;
   width: 100%;
   float: left;
-  margin-top: 120px;
+  margin-top: 170px;
   }
   .pink {
   position: absolute;

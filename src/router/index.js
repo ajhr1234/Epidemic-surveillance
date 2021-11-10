@@ -14,6 +14,10 @@ import epidemicMap from "../view/epidemicMap/index.vue"
 import chinaMap from "../view/epidemicMap/chinaMap.vue"
 import fuJianMap from "../view/epidemicMap/fuJianMap.vue"
 import worldMap from "../view/epidemicMap/worldMap.vue"
+import epidemicTrend from '../view/epidemicTrend/index.vue';
+import chinaTrend from '../view/epidemicTrend/chinaTrend.vue';
+import worldTrend from '../view/epidemicTrend/worldTrend.vue';
+import lo_re from '../view/Login_register.vue'
 //安装路由
 Vue.use(VueRouter);
 
@@ -26,7 +30,7 @@ export default new VueRouter({
 			name: "Home",
 			children: [{
 					//路由路径
-					path: '/content',
+					path: "/",
 					name: 'content',
 					//跳转的组件
 					component: Content
@@ -65,6 +69,13 @@ export default new VueRouter({
 				},
 				{
 					//路由路径
+					path: '/login_index',
+					name: 'login_index',
+					//跳转的组件
+					component: lo_re
+				},
+				{
+					//路由路径
 					path: '/login',
 					name: 'login',
 					//跳转的组件
@@ -78,25 +89,35 @@ export default new VueRouter({
 					component: Register
 				},
 				{
-				  name: 'epidemicMap',
-				  path: '/epidemicMap',
-				  component: epidemicMap,
-				  children: [
-				    {
-				      path: '/fuJianMap',
-				      component: fuJianMap,
-				    },
-				    {
-				      path:'/chinaMap',
-				      component:chinaMap,
-				    },
-				    {
-				      path:'/worldMap',
-				      component:worldMap,
-				    }
-				  ],
-				  
-				}
+					name: 'epidemicMap',
+					path: '/epidemicMap',
+					component: epidemicMap,
+				},
+				{
+					path: '/fuJianMap',
+					component: fuJianMap,
+				},
+				{
+					path: '/chinaMap',
+					component: chinaMap,
+				},
+				{
+					path: '/worldMap',
+					component: worldMap,
+				},
+				{
+					name: 'epidemicTrend',
+					path: '/epidemicTrend',
+					component: epidemicTrend,
+				},
+				{
+					path: '/chinaTrend',
+					component: chinaTrend,
+				},
+				{
+					path: '/worldTrend',
+					component: worldTrend,
+				},
 			],
 		},
 		{
