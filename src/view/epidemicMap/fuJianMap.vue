@@ -3,36 +3,36 @@
     <div class="number_container">
       <div class="number_block">
         <div class="number" style="color:#FF6A57;font-size: 25px;">{{number.currentConfirmedNum}}</div>
-        <div class="title">现有确诊</div>
+        <div class="title">Confirmed cases</div>
       </div>
       <div class="number_block">
         <div class="number" style="color:#EC9217;font-size: 25px;">{{number.asymptomNum}}</div>
-        <div class="title">无症状感染者</div>
+        <div class="title">Asymptomatic infection cases</div>
       </div>
       <div class="number_block">
         <div class="number" style="color:#476DA0;font-size: 25px;">{{number.jwsrNum}}</div>
-        <div class="title">境外输入</div>
+        <div class="title">Import from abroad</div>
       </div>
     </div>
     <div class="number_container">
       <div class="number_block">
         <div class="number" style="color:#E83132;font-size: 25px;">{{number.confirmedNum}}</div>
-        <div class="title">累计确诊</div>
+        <div class="title">Cumulative diagnosis</div>
       </div>
       <div class="number_block">
         <div class="number" style="color:#10AEB5;font-size: 25px;">{{number.curedNum}}</div>
-        <div class="title">累计治愈</div>
+        <div class="title">Cumulative cure</div>
       </div>
       <div class="number_block">
         <div class="number" style="color:#4E5054;font-size: 25px;">{{number.deadNum}}</div>
-        <div class="title">累计死亡</div>
+        <div class="title">Cumulative death</div>
       </div>
     </div>
 
     <div class="index_switch_buttons">
-      <div class="index_button" :class="isTotal==1 ?'checked':''"  @click="change(1)">累计确诊</div>
-      <div class="index_button" :class="isTotal==2 ?'checked':'' "  @click="change(2)">现有确诊</div>
-      <div class="index_button" :class="isTotal==3 ?'checked':'' "  @click="change(3)">累计治愈</div>
+      <div class="index_button" :class="isTotal==1 ?'checked':''"  @click="change(1)">Cumulative diagnosis</div>
+      <div class="index_button" :class="isTotal==2 ?'checked':'' "  @click="change(2)">Confirmed cases</div>
+      <div class="index_button" :class="isTotal==3 ?'checked':'' "  @click="change(3)">Cumulative cure</div>
     </div>
 
     <div ref='mapbox' class="fujian"></div>
@@ -43,9 +43,9 @@ import echarts from 'echarts'
 import 'echarts/map/js/province/fujian.js'
 // eslint-disable-next-line no-unused-vars
 import jsonp from 'jsonp'
-const option = { 
+const option = {
     title: {
-        text: '福建疫情图',
+        text: 'Fujian Epidemic Map',
         left: 'center',
       },
       tooltip: {
@@ -80,10 +80,10 @@ const option = {
     visualMap: {
         type: 'piecewise',
         pieces: [
-          { min: 50, label: '确诊50人以上' },
-          { min: 30, max: 49, label: '确诊30-49人' },
-          { min: 10, max: 29, label: '确诊10-29人' },
-          { min: 1, max: 9, label: '确诊1-9人'},
+          { min: 50, label: '50 people or more' },
+          { min: 30, max: 49, label: '30-49 people' },
+          { min: 10, max: 29, label: '10-29 people' },
+          { min: 1, max: 9, label: '1-9 people'},
         ],
         inRange:{
           symbol:'rect',
@@ -91,9 +91,9 @@ const option = {
         }
         // color: ['#E0022B', '#E09107', '#A3E00B']
       },
-  
+
     data:[],//用来展示后台给的数据
-    
+
     toolbox: {
         show: true,
         orient: 'vertical',
@@ -106,7 +106,7 @@ const option = {
           saveAsImage: { show: true }
         }
       }
-   
+
 };
 
 export default {
@@ -140,8 +140,8 @@ export default {
             // eslint-disable-next-line no-unused-vars
             let list = data.data.list[11].city.map(item=>({name:item.name+'市',value:item.conNum}))
             option.series[0].data = list;
-            option.series[0].name = '累计确诊';
-            this.mychart.setOption(option) 
+            option.series[0].name = 'Cumulative diagnosis';
+            this.mychart.setOption(option)
           //这行代码能执行的前提是 Dom已渲染完成，只有Dom渲染完成才能执行echarts初始化
           }
         })
@@ -154,8 +154,8 @@ export default {
             // eslint-disable-next-line no-unused-vars
             let list = data.data.list[11].city.map(item=>({name:item.name+'市',value:item.econNum}))
             option.series[0].data = list;
-            option.series[0].name = '现有确诊';
-            this.mychart.setOption(option) 
+            option.series[0].name = 'Confirmed cases';
+            this.mychart.setOption(option)
           //这行代码能执行的前提是 Dom已渲染完成，只有Dom渲染完成才能执行echarts初始化
           }
         })
@@ -168,8 +168,8 @@ export default {
             // eslint-disable-next-line no-unused-vars
             let list = data.data.list[11].city.map(item=>({name:item.name+'市',value:item.cureNum}))
             option.series[0].data = list;
-            option.series[0].name = '累计治愈';
-            this.mychart.setOption(option) 
+            option.series[0].name = 'Cumulative cure';
+            this.mychart.setOption(option)
           //这行代码能执行的前提是 Dom已渲染完成，只有Dom渲染完成才能执行echarts初始化
           }
         })

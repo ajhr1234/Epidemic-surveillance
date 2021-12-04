@@ -29,6 +29,7 @@
 <script>
 	import axios from 'axios';
 	import Qs from 'qs'
+	import Event from '../components/Event.js';
 	export default {
 		name: "Login",
 		data() {
@@ -50,6 +51,7 @@
 				}
 			};
 			return {
+				uid:-1,
 				msg: -1,
 				ruleForm: {
 					user: '',
@@ -67,13 +69,19 @@
 				}
 			};
 		},
+		beforeRouteEnter: (to,from,next) => {
+			//组件内守卫
+			//已登录状态回到登录界面，登出
+			next(vm=>{
+				vm.$store.dispatch("setUser",null)
+			})
+		},
 		methods: {
 			submitForm(formName) {
-
 				this.$refs[formName].validate((valid) => {
 					if (valid) {
 						axios({
-								url: 'http://4485357db8.zicp.vip/ess_team11/login',
+								url: 'http://4485357db8.zicp.vip/login',
 								method: 'post',
 								transformRequest: [function(data) {
 									// 对 data 进行任意转换处理
@@ -90,6 +98,7 @@
 								console.log("success")
 								console.log(result.data)
 								this.msg = result.data.msg
+								this.uid=result.data.user.uid
 								if (this.msg == 1) {
 									alert('submit!');
 									this.$router.push("/main/" + this.ruleForm.user);
@@ -98,6 +107,15 @@
 									console.log('error submit!!');
 									return false;
 								}
+								//将用户名和token放入sessionStorage
+								sessionStorage.setItem("userName", result.data.uname);
+								sessionStorage.setItem("userToken", result.data.tokenName);
+								sessionStorage.setItem("userTokenValue", result.data.tokenValue);
+								sessionStorage.setItem("uid", result.data.user.uid);
+								sessionStorage.setItem(result.data.tokenName,result.data.tokenValue);
+								//将用户信息放入vuex
+								this.$store.dispatch("setUser", this.ruleForm.user);
+								this.$store.dispatch("setToken", result.data.tokenName);
 
 							})
 							.catch(err => {

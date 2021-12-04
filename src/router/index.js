@@ -1,13 +1,10 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Content from "../view/Content.vue";
-import Main from "../view/Main";
-import Test from "../view/user/Test.vue"
+import Main from "../view/Book/Main";
 import Login from "../view/Login"
 import NotFound from "../view/NotFound"
 import Home from "../view/Home.vue"
-import UserProfile from "../view/user/Profile"
-import UserList from "../view/user/list"
 import Register from "../view/Register.vue"
 import RealTimeNews from "../view/realTimeNews.vue"
 import epidemicMap from "../view/epidemicMap/index.vue"
@@ -18,6 +15,16 @@ import epidemicTrend from '../view/epidemicTrend/index.vue';
 import chinaTrend from '../view/epidemicTrend/chinaTrend.vue';
 import worldTrend from '../view/epidemicTrend/worldTrend.vue';
 import lo_re from '../view/Login_register.vue'
+import Guide from "../view/Book/guide";
+import Online_book from "../view/Book/online_book.vue";
+import My_book from "../view/Book/my_book.vue";
+import Success from "../view/Book/success.vue"
+import Test from "../view/Book/test.vue";
+import User from "../view/User.vue"
+import Ucon from "../view/User_content.vue"
+import MPI from "../view/Userstorage/Modify_Personal_Information.vue"
+import MV from "../view/Userstorage/Message_View.vue"
+import about from "../view/Userstorage/About_Volunteers.vue"
 //安装路由
 Vue.use(VueRouter);
 
@@ -41,18 +48,6 @@ export default new VueRouter({
 					name: 'main',
 					//跳转的组件
 					component: Main, //嵌套路由
-					children: [{
-						path: '/user/profile/:id',
-						name: 'UserProfile',
-						props: true,
-						component: UserProfile
-					}, {
-						path: '/user/list',
-						component: UserList
-					}, {
-						path: '/goHome',
-						redirect: '/main'
-					}]
 				}, {
 					//路由路径
 					path: '/test',
@@ -118,6 +113,79 @@ export default new VueRouter({
 					path: '/worldTrend',
 					component: worldTrend,
 				},
+				{
+					//路由路径
+					path: '/guide',
+					name: 'guide',
+					//跳转的组件
+					component: Guide
+				
+				},
+				{
+					//路由路径
+					path: '/online_book/:name',
+					name: 'online_book',
+					//跳转的组件
+					component: Online_book
+				
+				},
+				{
+					//路由路径
+					path: '/my_book/:name',
+					name: 'my_book',
+					//跳转的组件
+					component: My_book
+				
+				},
+				{
+					//路由路径
+					path: '/success/:name',
+					name: 'success',
+					//跳转的组件
+					component: Success
+				},
+				{
+					//路由路径
+					path: '/test',
+					name: 'test',
+					//跳转的组件
+					component: Test
+				},
+				{
+					//路由路径
+					path: '/user',
+					name: 'user',
+					//跳转的组件
+					component: User
+				},
+				{
+					//路由路径
+					path: '/ucon',
+					name: 'ucon',
+					//跳转的组件
+					component: Ucon
+				},
+				{
+					//路由路径
+					path: '/MPI',
+					name: 'MPI',
+					//跳转的组件
+					component: MPI
+				},
+				{
+					//路由路径
+					path: '/MV',
+					name: 'MV',
+					//跳转的组件
+					component: MV
+				},
+				{
+					//路由路径
+					path: '/about',
+					name: 'about',
+					//跳转的组件
+					component: about
+				}
 			],
 		},
 		{

@@ -73,5 +73,10 @@ module.exports = {
 		// `npm run build --report`
 		// Set to `true` or `false` to always turn it on or off
 		bundleAnalyzerReport: process.env.npm_config_report
+	},
+	email: { //邮件配置
+		service: 'jhr13950850032@163.com',
+		user: 'jhr13950850032@163.com',
+		pass: '23240212324021',
 	}
 }

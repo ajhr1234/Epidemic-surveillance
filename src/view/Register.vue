@@ -91,7 +91,7 @@
 				this.$refs[formName].validate((valid) => {
 					if (valid) {
 						axios({
-								url: 'http://4485357db8.zicp.vip/ess_team11/register',
+								url: 'http://4485357db8.zicp.vip/register',
 								method: 'post',
 								transformRequest: [function(data) {
 									// 对 data 进行任意转换处理

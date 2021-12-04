@@ -9,6 +9,7 @@ import axios from 'axios'
 import Axios from 'axios'
 import VueAxios from 'vue-axios'
 import echarts from "echarts";
+import store from "./vuex/store.js"
 Vue.prototype.$echarts = echarts;
 // 设置全局的axios
 Vue.prototype.$axios=Axios
@@ -22,5 +23,6 @@ new Vue({
 	el: '#app',
 	//配置路由
 	router,
+	store,
 	render: h => h(App)
 })

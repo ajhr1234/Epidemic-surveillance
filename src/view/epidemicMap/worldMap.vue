@@ -4,29 +4,29 @@
       <div class="number_block">
         <div class="increase_block" style="color:#FF6A57">{{number.ecertain_inc}}</div>
         <div class="number" style="color:#FF6A57;font-size: 25px;">{{number.ecertain}}</div>
-        <div class="title">海外现有确诊</div>
+        <div class="title">Confirmed cases</div>
       </div>
       <div class="number_block">
         <div class="increase_block" style="color:#E83132">{{number.certain_inc}}</div>
         <div class="number" style="color:#E83132;font-size: 25px;">{{number.certain}}</div>
-        <div class="title">海外累计确诊</div>
+        <div class="title">Cumulative diagnosis</div>
       </div>
       <div class="number_block">
         <div class="increase_block" style="color:#10AEB5">{{number.certain_inc}}</div>
         <div class="number" style="color:#10AEB5;font-size: 25px;">{{number.recure}}</div>
-        <div class="title">海外累计治愈</div>
+        <div class="title">Cumulative cure</div>
       </div>
       <div class="number_block">
         <div class="increase_block" style="color:#4E5054">{{number.certain_inc}}</div>
         <div class="number" style="color:#4E5054;font-size: 25px;">{{number.die}}</div>
-        <div class="title">海外累计死亡</div>
+        <div class="title">Cumulative death</div>
       </div>
     </div>
 
     <div class="index_switch_buttons">
-      <div class="index_button" :class="isTotal==1 ?'checked':''"  @click="change(1)">累计确诊</div>
-      <div class="index_button" :class="isTotal==2 ?'checked':'' "  @click="change(2)">现有确诊</div>
-      <div class="index_button" :class="isTotal==3 ?'checked':'' "  @click="change(3)">累计治愈</div>
+      <div class="index_button" :class="isTotal==1 ?'checked':''"  @click="change(1)">Cumulative diagnosis</div>
+      <div class="index_button" :class="isTotal==2 ?'checked':'' "  @click="change(2)">Confirmed cases</div>
+      <div class="index_button" :class="isTotal==3 ?'checked':'' "  @click="change(3)">Cumulative cure</div>
     </div>
 
     <!-- 初始化echarts需要有个宽高的盒子 -->
@@ -39,12 +39,12 @@ import echarts from 'echarts'
 import 'echarts/map/js/world.js'
 // eslint-disable-next-line no-unused-vars
 import jsonp from 'jsonp'
-const option = { 
+const option = {
       title: {
-        text: '世界疫情图',
+        text: 'World Epidemic Map',
         left: 'center',
       },
-      
+
       tooltip: {
         trigger: 'item'
       },
@@ -73,12 +73,12 @@ const option = {
         type: 'piecewise',
         bottom:0,
         pieces: [
-          { min: 100000, label: '大于等于10000人' },
-          { min: 10000, max:99999, label: '累计确诊10000-99999人' },
-          { min: 1000, max: 9999, label: '确诊1000-9999人' },
-          { min: 100, max: 999, label: '确诊100-999人' },
-          { min: 10, max: 99, label: '确诊10-99人' },
-          { min: 1, max: 9, label: '确诊1-9人'},
+          { min: 100000, label: '100 000 people or more' },
+          { min: 10000, max:99999, label: '10 000 people or more' },
+          { min: 1000, max: 9999, label: '1 000-9 999 people' },
+          { min: 100, max: 999, label: '100-999 people' },
+          { min: 10, max: 99, label: '10-99 people' },
+          { min: 1, max: 9, label: '1-9 people'},
         ],
         inRange:{
           symbol:'rect',
@@ -86,9 +86,9 @@ const option = {
         }
         // color: ['#E0022B', '#E09107', '#A3E00B']
       },
-  
+
     data:[],//用来展示后台给的数据
-    
+
     toolbox: {
         show: true,
         orient: 'vertical',
@@ -354,8 +354,8 @@ export default {
             // eslint-disable-next-line no-unused-vars
             let list = data.data.worldlist.map(item=>({name:item.name,value:item.value}))
             option.series[0].data = list;
-            option.series[0].name = '累计确诊';
-            this.mychart.setOption(option) 
+            option.series[0].name = 'Cumulative diagnosis';
+            this.mychart.setOption(option)
           //这行代码能执行的前提是 Dom已渲染完成，只有Dom渲染完成才能执行echarts初始化
           }
         })
@@ -368,8 +368,8 @@ export default {
             // eslint-disable-next-line no-unused-vars
             let list = data.data.worldlist.map(item=>({name:item.name,value:item.econNum}))
             option.series[0].data = list;
-            option.series[0].name = '现有确诊';
-            this.mychart.setOption(option) 
+            option.series[0].name = 'Confirmed cases';
+            this.mychart.setOption(option)
           //这行代码能执行的前提是 Dom已渲染完成，只有Dom渲染完成才能执行echarts初始化
           }
         })
@@ -382,8 +382,8 @@ export default {
             // eslint-disable-next-line no-unused-vars
             let list = data.data.worldlist.map(item=>({name:item.name,value:item.cureNum}))
             option.series[0].data = list;
-            option.series[0].name = '累计治愈';
-            this.mychart.setOption(option) 
+            option.series[0].name = 'Cumulative cure';
+            this.mychart.setOption(option)
           //这行代码能执行的前提是 Dom已渲染完成，只有Dom渲染完成才能执行echarts初始化
           }
         })

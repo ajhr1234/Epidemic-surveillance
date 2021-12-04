@@ -5,15 +5,36 @@
 				<div class="logo">
 					<img src="../images/logo.png" alt="">
 				</div>
-				<div class="person">
-					<img src="../images/person.png" alt="">
-				</div>
+				
 				<div id="we">
-					<h2> Epidemic Surveillance</h2>
+					<h2>Epidemic Surveillance</h2>
 				</div>
 				<nav>
 					<router-link class="item" v-for="item in nvaList" :key="item.id" :to=item.url>{{item.name}}
 					</router-link>
+					<div id="loginUser">
+						<div id="loginAndRegister" v-show="!isLogin">
+							<router-link class="item" to="/login_index">
+							Login_Register
+							</router-link>
+<!-- 							<div class="person">
+								<a href="User"><img src="../images/person.png" alt=""></a>
+							</div> -->
+						</div>
+						<div id="userHome" v-show="isLogin">
+							<!-- <router-link class="item" :to="{name:'main',path:'/main/:name'}"> -->
+							<router-link class="item" :to="'/main/'+ userName">
+							Subscribe
+							</router-link>
+							<router-link class="item" to="/login_index">
+							[exit]
+							</router-link>
+							<div class="person">
+								<router-link class="item" to="/user"><img src="../images/person.png" alt=""></router-link>
+							</div>
+						</div>
+					</div>
+					
 				</nav>
 			</div>
 			<router-view class="main"></router-view>
@@ -25,6 +46,7 @@
 	export default {
 		data() {
 			return {
+				userName:'',
 				nvaList: [{
 						name: 'Home',
 						id: 0,
@@ -35,22 +57,22 @@
 						id: 1,
 						url: '/epidemicMap'
 					},
-          {
-          	name: 'Epidemic trend',
-          	url: '/epidemicTrend',
-          	id: 3,
-          },
+					{
+						name: 'Epidemic trend',
+						url: '/epidemicTrend',
+						id: 3,
+					},
 					{
 						name: 'RealTimeNews',
 						url: '/RealTimeNews',
 						id: 2,
 					},
 
-					{
-						name: 'Login_Register',
-						url: '/login_index',
-						id: 4
-					},
+					// {
+					// 	name: 'Login_Register',
+					// 	url: '/login_index',
+					// 	id: 4
+					// },
 					// {
 					// 	name: 'Register',
 					// 	url: '/Register',
@@ -59,6 +81,24 @@
 				]
 			}
 		},
+		computed:{
+			 isLogin(){
+				 this.userName=sessionStorage.getItem("userName");
+			      console.log("in app name" + sessionStorage.getItem("userName"));
+			//      console.log("in app name" + sessionStorage.getItem("userName"));
+			      console.log("in app name" + sessionStorage.getItem("userName"));
+
+			
+			      //通过sessionstorage获取vuex里islogin的状态
+			      if (sessionStorage.getItem("userName") && sessionStorage.getItem("userToken")){
+			        this.$store.commit("userStatus",sessionStorage.getItem("userName"));
+			      } else {
+			        this.$store.commit("userStatus",null);
+			      }
+			      return this.$store.getters.isLogin;
+			    },
+		},
+		
 	}
 </script>
 <style scoped>
@@ -94,7 +134,7 @@
 
 	.item:hover {
 		color: pink;
-    font-size: 25px;
+		font-size: 25px;
 	}
 
 	.main {
@@ -124,6 +164,4 @@
 		font-family: Raleway, 'Times New Roman', serif;
 		line-height: 2px;
 	}
-
-
 </style>
