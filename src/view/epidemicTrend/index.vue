@@ -3,7 +3,7 @@
 
   <div class="box">
     <div class="pic">
-      <img src="../../images/right.gif" >
+      <img src="../../images/right2.png" >
     </div>
   <div>
 
@@ -71,10 +71,10 @@ p {
   height: 412px;
 }
 .first:hover {
-  border: 10px #efc4bf solid;
+  border: 10px #66B0B5 solid;
 }
 .sec:hover {
-  border: 10px #efc4bf solid;
+  border: 10px #66B0B5 solid;
 }
 .dataOne {
   float: left;
@@ -86,7 +86,7 @@ p {
   width: 300px;
  border-radius: 100px;
   height: 250px;
-  border: 3px #efc4bf solid;
+  border: 3px #66B0B5 solid;
 
 }
 .china img {
@@ -104,7 +104,7 @@ p {
   width: 300px;
  border-radius: 100px;
   height: 250px;
-  border: 3px #efc4bf solid;
+  border: 3px #66B0B5 solid;
 
 }
 .world img {
@@ -124,7 +124,7 @@ p {
   position: absolute;
   width: 80%;
   height: 250px;
-  background-color: #efc4bf;
+  background-color: #2f9aa1;
   bottom: 0;
   right: 0;
   }

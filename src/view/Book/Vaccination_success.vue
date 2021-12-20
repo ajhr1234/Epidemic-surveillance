@@ -1,5 +1,5 @@
 <template>
-  <body style=" padding: 0; margin-top: -29px; height: 650px;">
+  <body style="padding: 0; margin-top: -29px; height: 650px;">
 	<div id="main">
 		<div id="header">
 			<!-- <el-button type="text" icon="el-icon-caret-left" style="float: left; margin-left: -400px; margin-top: 30px;">
@@ -14,7 +14,7 @@
 			<img src="../../images/1628581253.png" style="width:50%;">
 			<br>
 			<el-button type="primary" style="margin-top:30px; background-color: #E2762D; border-radius: 40px;" @click.native="send">
-				<router-link  :to="'/my_book/'+userName" id="guide">Check result</router-link>
+				<router-link  :to="'/vaccination_result/'+userName" id="guide">Check result</router-link>
 			</el-button>
 			<br>
 			<el-button plain style="margin-top:10px; border-radius: 40px;">

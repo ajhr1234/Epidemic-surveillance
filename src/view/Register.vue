@@ -13,8 +13,8 @@
 			</el-form-item>
       <br><br><br>
 			<el-form-item>
-				<el-button type="primary" @click="submitForm('ruleForm')">Submit</el-button>
-				<el-button @click="resetForm('ruleForm')">Remark</el-button>
+				<el-button type="primary" @click="submitForm('ruleForm')" style="background-color: #778fb2; border-radius: 51px;">Submit</el-button>
+				<el-button @click="resetForm('ruleForm')" style="border-radius: 51px;">Remark</el-button>
 			</el-form-item>
 		</el-form>
     <div class="bottom">
@@ -108,9 +108,10 @@
 								console.log(result.data)
 								this.msg = result.data
 								if (this.msg == 1) {
-									alert('submit!');
+									alert('Registered successfully!!!');
 									this.$router.push("/main/" + this.ruleForm.user);
 								} else {
+									alert('Registration failed!!');
 									console.log(this.msg);
 									return false;
 								}
@@ -122,7 +123,7 @@
 
 
 					} else {
-						console.log('error submit!!');
+						console.log('Registration failed!!');
 						return false;
 					}
 				});

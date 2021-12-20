@@ -15,7 +15,6 @@ import epidemicTrend from '../view/epidemicTrend/index.vue';
 import chinaTrend from '../view/epidemicTrend/chinaTrend.vue';
 import worldTrend from '../view/epidemicTrend/worldTrend.vue';
 import lo_re from '../view/Login_register.vue'
-import Guide from "../view/Book/guide";
 import Online_book from "../view/Book/online_book.vue";
 import My_book from "../view/Book/my_book.vue";
 import Success from "../view/Book/success.vue"
@@ -25,6 +24,12 @@ import Ucon from "../view/User_content.vue"
 import MPI from "../view/Userstorage/Modify_Personal_Information.vue"
 import MV from "../view/Userstorage/Message_View.vue"
 import about from "../view/Userstorage/About_Volunteers.vue"
+import NA from "../view/Book/Nucleic_acid.vue"
+import Vaccination from "../view/Book/Vaccination.vue"
+import Va_success from"../view/Book/Vaccination_success.vue"
+import Va_result from"../view/Book/Vaccination_result.vue"
+import Na_success from"../view/Book/Nucleic_success.vue"
+import Na_result from "../view/Book/Nucleic_result.vue"
 //安装路由
 Vue.use(VueRouter);
 
@@ -115,28 +120,68 @@ export default new VueRouter({
 				},
 				{
 					//路由路径
-					path: '/guide',
-					name: 'guide',
-					//跳转的组件
-					component: Guide
-				
-				},
-				{
-					//路由路径
 					path: '/online_book/:name',
 					name: 'online_book',
 					//跳转的组件
 					component: Online_book
-				
+
 				},
+				{
+					//路由路径
+					path: '/Nucleic_acid/:name',
+					name: 'Nucleic_acid',
+					//跳转的组件
+					component: NA
+
+				},
+        {
+        	//路由路径
+        	path: '/Nucleic_success/:name',
+        	name: 'Nucleic_success',
+        	//跳转的组件
+        	component: Na_success
+
+        },
+        {
+        	//路由路径
+        	path: '/Nucleic_result/:name',
+        	name: 'Nucleic_result',
+        	//跳转的组件
+        	component: Na_result
+
+        },
 				{
 					//路由路径
 					path: '/my_book/:name',
 					name: 'my_book',
 					//跳转的组件
 					component: My_book
-				
+
 				},
+				{
+					//路由路径
+					path: '/vaccination/:name',
+					name: 'vaccination',
+					//跳转的组件
+					component: Vaccination
+
+				},
+        {
+        	//路由路径
+        	path: '/vaccination_result/:name',
+        	name: 'vaccination_result',
+        	//跳转的组件
+        	component: Va_result
+
+        },
+        {
+        	//路由路径
+        	path: '/vaccination_success/:name',
+        	name: 'vaccination_success',
+        	//跳转的组件
+        	component: Va_success
+
+        },
 				{
 					//路由路径
 					path: '/success/:name',

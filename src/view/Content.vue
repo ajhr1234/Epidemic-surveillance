@@ -19,14 +19,14 @@
               </div>
               <!-- 中央元素结束 -->
               <div class="picR">
-                  <img src="../images/coffee.png" alt="">
+                  <img src="../images/content0.png" alt="">
               </div>
               <br><br><br><br><br><br><br><br><br><br><br><br><br>
               <div class="bottom">
                   <div class="gray"></div>
                   <div class="pink">
                     <div class="pinkLeft">
-                      <img src="../images/logo.png" alt="">
+                      <!-- <img src="../images/logo.png" alt=""> -->
                     </div>
                     <!-- <div class="pinkMid">Epidemic Surveillance</div> -->
                      <div class="pinkMid">Team11</div>
@@ -100,7 +100,7 @@ body {
   .picR {
       position: absolute;
       top: 100px;
-      right: 10px;
+      left: 900px;
   }
   .picR img {
   width: 600px;
@@ -115,7 +115,7 @@ body {
   position: absolute;
   width: 80%;
   height: 250px;
-  background-color: #efc4bf;
+  background-color: #2f9aa1;
   bottom: 0;
   right: 0;
   }

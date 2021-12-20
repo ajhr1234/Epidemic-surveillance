@@ -1,6 +1,6 @@
 <template>
 <div>
-  <h1>404，你的页面走丢了</h1>
+  <h1>404, NOT Found</h1>
 </div>
 </template>
 

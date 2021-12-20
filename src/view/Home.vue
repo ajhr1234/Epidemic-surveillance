@@ -3,13 +3,13 @@
 		<header>
 			<div class="head">
 				<div class="logo">
-					<img src="../images/logo.png" alt="">
+					<img src="../images/logo.png" alt="" picT>
 				</div>
-				
+
 				<div id="we">
-					<h2>Epidemic Surveillance</h2>
+					<h2> Epidemic Surveillance</h2>
 				</div>
-				<nav>
+				<nav style="background-color: ; height: 50px; margin-right: 30px;">
 					<router-link class="item" v-for="item in nvaList" :key="item.id" :to=item.url>{{item.name}}
 					</router-link>
 					<div id="loginUser">
@@ -23,18 +23,22 @@
 						</div>
 						<div id="userHome" v-show="isLogin">
 							<!-- <router-link class="item" :to="{name:'main',path:'/main/:name'}"> -->
-							<router-link class="item" :to="'/main/'+ userName">
-							Subscribe
-							</router-link>
-							<router-link class="item" to="/login_index">
+
+              <router-link class="item" :to="'/main/'+ userName" style="float: left;">
+              Subscribe
+              </router-link>
+							<router-link style="float: left;" class="item" to="/login_index" >
 							[exit]
 							</router-link>
-							<div class="person">
-								<router-link class="item" to="/user"><img src="../images/person.png" alt=""></router-link>
-							</div>
+              <div class="person">
+              	<router-link class="item" to="/user"><img src="../images/person.png" alt=""></router-link>
+              </div>
+
+
 						</div>
 					</div>
-					
+
+
 				</nav>
 			</div>
 			<router-view class="main"></router-view>
@@ -46,7 +50,7 @@
 	export default {
 		data() {
 			return {
-				userName:'',
+        userName:'',
 				nvaList: [{
 						name: 'Home',
 						id: 0,
@@ -83,12 +87,12 @@
 		},
 		computed:{
 			 isLogin(){
-				 this.userName=sessionStorage.getItem("userName");
+         this.userName=sessionStorage.getItem("userName");
 			      console.log("in app name" + sessionStorage.getItem("userName"));
 			//      console.log("in app name" + sessionStorage.getItem("userName"));
 			      console.log("in app name" + sessionStorage.getItem("userName"));
 
-			
+
 			      //通过sessionstorage获取vuex里islogin的状态
 			      if (sessionStorage.getItem("userName") && sessionStorage.getItem("userToken")){
 			        this.$store.commit("userStatus",sessionStorage.getItem("userName"));
@@ -98,7 +102,7 @@
 			      return this.$store.getters.isLogin;
 			    },
 		},
-		
+
 	}
 </script>
 <style scoped>
@@ -108,14 +112,19 @@
 	}
 
 	.head {
+    white-space:nowrap;
 		position: relative;
 		height: 49px;
 		line-height: 49px;
 		margin-top: -50px;
 		border-bottom: 1px solid #000;
+    width: 1510px;
 	}
 
 	nav {
+    /* background-color: #000000; */
+    margin-left: -200px;
+    white-space:nowrap;
 		display: flex;
 		justify-content: flex-end;
 		/*margin-right: 30px; */
@@ -124,8 +133,10 @@
 	}
 
 	.item {
+    /* background-color: #000000; */
 		color: #000000;
-		margin: auto;
+		/* margin: 20px; */
+    margin-left: 50px;
 		text-decoration-line: none;
 		transition: 0.3s;
 		font-weight: 545;
@@ -133,8 +144,9 @@
 	}
 
 	.item:hover {
-		color: pink;
-		font-size: 25px;
+		/* color: pink; */
+    color: #E2762D;
+		/* font-size: 20px; */
 	}
 
 	.main {
@@ -143,25 +155,38 @@
 
 	.logo {
 		float: left;
-		margin-left: 10px;
+		margin-left: .5%;
+    white-space:nowrap;
 	}
 
 	.person {
 		/* position: absolute; */
-		float: right;
-		right: 10px;
+		float: left;
 		width: 50px;
 		height: 50px;
-		margin-right: 10px;
+    margin-right: 20px;
 	}
 
 	#we {
+    white-space:nowrap;
 		color: #000000;
 		float: left;
-		margin-left: 30px;
+		margin-left: 1.5%;
 		font-style: italic;
-		font-size: 20px;
+		font-size: 1.25rem;
 		font-family: Raleway, 'Times New Roman', serif;
 		line-height: 2px;
 	}
+  @media screen and (max-width: 960px) {
+    #we {
+      /* font-size: 0.625rem; */
+    }
+    .item {
+      /* font-size: 0.625rem; */
+    }
+    .person {
+     /* width: 0.3125rem;
+      height: 0.3125rem; */
+    }
+  }
 </style>

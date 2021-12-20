@@ -3,13 +3,13 @@
   <div class="box">
           <div class="left">
               <div>
-                  <img src="../images/left.png" alt="">
+                  <img src="../images/left0.png" alt="" style="height: 300px; margin-top: 12px;">
               </div>
               <div class="signIn"><a href="/Login">Sign in</a></div>
               <div class="leftP"><a href="/Login">I have already get an account</a></div>
           </div>
           <div class="right">
-              <div><img src="../images/right.gif" alt=""></div>
+              <div><img src="../images/right0.png" alt=""></div>
               <div class="signUp"><a href="/Register">Sign up</a></div>
               <div class="rightP"><a href="/Register">I haven't an account yet</a></div>
           </div>
@@ -37,6 +37,15 @@
 </template>
 
 <script>
+	export default {
+		beforeRouteEnter: (to,from,next) => {
+			//组件内守卫
+			//已登录状态回到登录界面，登出
+			next(vm=>{
+				vm.$store.dispatch("setUser",null)
+			})
+		},
+	}
 </script>
 
 <style scoped>
@@ -76,7 +85,7 @@
 
 .signIn {
     margin: 10px 0 0 90px;
-    background-color: #e08b82;
+    background-color: #E2762D;
     border-radius: 80px;
     width: 250px;
     height: 80px;
@@ -99,7 +108,7 @@
 
 .signUp {
     margin: 10px 0 0 90px;
-    background-color: #e08b82;
+    background-color: #2f9aa1;
     border-radius: 80px;
     width: 250px;
     height: 80px;
@@ -128,7 +137,7 @@
   position: absolute;
   width: 80%;
   height: 250px;
-  background-color: #efc4bf;
+  background-color: #2f9aa1;
   bottom: 0;
   right: 0;
   }

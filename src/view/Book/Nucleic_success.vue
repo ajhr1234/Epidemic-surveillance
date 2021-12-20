@@ -14,7 +14,7 @@
 			<img src="../../images/1628581253.png" style="width:50%;">
 			<br>
 			<el-button type="primary" style="margin-top:30px; background-color: #E2762D; border-radius: 40px;" @click.native="send">
-				<router-link  :to="'/my_book/'+userName" id="guide">Check result</router-link>
+				<router-link  :to="'/Nucleic_result/'+userName" id="guide">Check result</router-link>
 			</el-button>
 			<br>
 			<el-button plain style="margin-top:10px; border-radius: 40px;">

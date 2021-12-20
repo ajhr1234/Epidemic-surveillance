@@ -1,7 +1,7 @@
 <template>
   <body>
   <div class="root" style="background:#fff; padding:10px">
-    <a class="card" title="全球疫情" :bordered="false" style="width: 80%">
+    <a class="card" title="Global epidemic" :bordered="false" style="width: 80%">
       <div>
         <div id="chart1"></div>
       </div>
@@ -18,13 +18,13 @@ import echarts from 'echarts';
 
 const option = {
   title: {
-    text: '全球疫情趋势'
+    text: 'Global'
   },
   tooltip: {
     trigger: 'axis'
   },
   legend: {
-    data: ['全球确诊总人数(除中国)', '全球治愈总人数(除中国)', '全球死亡总人数(除中国)', '全球疑似病例总人数(除中国)']
+    data: ['Confirmed cases(except China)', 'Cumulative cure(except China)', 'Cumulative death(except China)', 'Suspected domestic cases(except China)']
   },
   grid: {
     left: '3%',
@@ -47,7 +47,7 @@ const option = {
   },
   series: [
     {
-      name: '全球确诊总人数(除中国)',
+      name: 'Confirmed cases(except China)',
       type: 'line',
       smooth: true,
       stack: '全球确诊总人数(除中国)',
@@ -55,7 +55,7 @@ const option = {
       data: []
     },
     {
-      name: '全球治愈总人数(除中国)',
+      name: 'Cumulative cure(except China)',
       type: 'line',
       smooth: true,
       stack: '全球治愈总人数(除中国)',
@@ -63,7 +63,7 @@ const option = {
       data: []
     },
     {
-      name: '全球死亡总人数(除中国)',
+      name: 'Cumulative death(except China)',
       type: 'line',
       smooth: true,
       stack: '全球死亡总人数(除中国)',
@@ -71,7 +71,7 @@ const option = {
       data: []
     },
     {
-      name: '全球疑似病例总人数(除中国)',
+      name: 'Suspected domestic cases(except China)',
       type: 'line',
       smooth: true,
       stack: '全球疑似病例总人数(除中国)',

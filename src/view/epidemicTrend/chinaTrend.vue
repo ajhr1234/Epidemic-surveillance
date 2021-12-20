@@ -1,7 +1,7 @@
 <template>
   <body>
   <div class="root" style="background:#fff; padding:10px">
-    <a class="card" title="国内疫情" :bordered="false" style="width: 80%">
+    <a class="card" title="Domestic epidemic" :bordered="false" style="width: 80%">
       <div>
         <div id="chart1"></div>
       </div>
@@ -18,13 +18,13 @@ import echarts from 'echarts';
 
 const option = {
   title: {
-    text: '国内疫情趋势'
+    text: 'Domestic epidemic trend'
   },
   tooltip: {
     trigger: 'axis'
   },
   legend: {
-    data: ['国内新增确诊人数', '国内疑似总人数', '国内新增境外输入人数']
+    data: ['Newly diagnosed in China', 'Suspected domestic cases', 'New domestic imported cases']
   },
   grid: {
     left: '3%',
@@ -47,14 +47,14 @@ const option = {
   },
   series: [
     {
-      name: '国内新增确诊人数',
+      name: 'Newly diagnosed in China',
       type: 'line',
       smooth: true,
       stack: '国内新增确诊人数',
       data: []
     },
     {
-      name: '国内疑似总人数',
+      name: 'Suspected domestic cases',
       type: 'line',
       smooth: true,
       stack: '国内疑似总人数',
@@ -68,7 +68,7 @@ const option = {
       data: []
     },
     {
-      name: '国内新增境外输入人数',
+      name: 'New domestic imported cases',
       type: 'bar',
       smooth: true,
       stack: '国内新增境外输入人数',

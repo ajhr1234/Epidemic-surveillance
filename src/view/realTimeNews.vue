@@ -120,7 +120,7 @@ export default{
   position: absolute;
   width: 80%;
   height: 250px;
-  background-color: #efc4bf;
+  background-color: #2f9aa1;
   bottom: 0;
   right: 0;
   }
