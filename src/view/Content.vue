@@ -2,8 +2,10 @@
 
   <div id="Content">
     <body>
+      <div id="purC" style="width: 800px; height: 800px;"></div>
+      <div id="greC" style="width: 450px; height: 450px;"></div>
     <div class="big">
-      <div class="center">
+      <div class="center" style="color: rgb(99, 100, 105);">
                   <div class="firbox">Welcome to the epidemic
                       <br>surveillance and convenience
                         <br>service system!
@@ -21,7 +23,7 @@
               <div class="picR">
                   <img src="../images/content0.png" alt="">
               </div>
-              <br><br><br><br><br><br><br><br><br><br><br><br><br>
+              <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
               <div class="bottom">
                   <div class="gray"></div>
                   <div class="pink">
@@ -53,9 +55,27 @@
 </script>
 
 <style scoped>
+  #purC {
+    position: absolute;
+    z-index: 100;
+    top: -130px;
+    left: -130px;
+    opacity: 0.13;
+    background-color: #2d3d8b;
+    border-radius: 50%;
+  }
+  #greC {
+      position: absolute;
+      z-index: 90;
+      top: 330px;
+      left: -50px;
+      opacity: 0.21;
+      background-color: #2f9aa1;
+      border-radius: 50%;
+  }
 body {
-    background-image: url(../images/bac.png);
-        background-size: 100%;
+    /* background-image: url(../images/bac.png); */
+        /* background-size: 100%; */
   }
   .big {
      width: 100%;
@@ -78,8 +98,10 @@ body {
       text-align: left;
   }
   .start {
-      margin: 10px 0 0 200px;
-      background-color: #e08b80;
+      position: absolute;
+      z-index: 200;
+      margin: 10px 0 0 240px;
+      background-color: rgb(226, 118, 45);
       border-radius: 80px;
       width: 250px;
       height: 80px;
@@ -115,7 +137,7 @@ body {
   position: absolute;
   width: 80%;
   height: 250px;
-  background-color: #2f9aa1;
+  background-color: rgb(144, 195, 216, 0.97);
   bottom: 0;
   right: 0;
   }

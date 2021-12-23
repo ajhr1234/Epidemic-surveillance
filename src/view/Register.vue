@@ -59,6 +59,7 @@
 			};
 			return {
 				msg: -1,
+				uid:-1,
 				pickerOptions: {
 					disabledDate(time) {
 						return time.getTime() > Date.now();
@@ -107,6 +108,7 @@
 							}).then(result => {
 								console.log(result.data)
 								this.msg = result.data
+								this.uid = result.data.uid
 								if (this.msg == 1) {
 									alert('Registered successfully!!!');
 									this.$router.push("/main/" + this.ruleForm.user);
@@ -115,6 +117,15 @@
 									console.log(this.msg);
 									return false;
 								}
+								//将用户名和token放入sessionStorage
+								sessionStorage.setItem("userName", this.ruleForm.user);
+								sessionStorage.setItem("userToken", result.data.tokenName);
+								sessionStorage.setItem("userTokenValue", result.data.tokenValue);
+								sessionStorage.setItem("uid", result.data.uid);
+								sessionStorage.setItem(result.data.tokenName, result.data.tokenValue);
+								//将用户信息放入vuex
+								this.$store.dispatch("setUser", this.ruleForm.user);
+								this.$store.dispatch("setToken", result.data.tokenName);
 							})
 							.catch(err => {
 								console.log(err)

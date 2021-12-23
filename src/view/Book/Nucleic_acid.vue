@@ -164,12 +164,6 @@
 							message: 'Please enter hospital',
 							trigger: 'blur'
 						},
-						{
-							min: 3,
-							max: 25,
-							message: '3 to 25 characters in length',
-							trigger: 'blur'
-						}
 					],
 					date1: [{
 						type: 'date',
@@ -218,7 +212,7 @@
 						sessionStorage.setItem("pnumber", this.ruleForm.pnumber)
 						sessionStorage.setItem("address", this.ruleForm.address)
 						sessionStorage.setItem("NucleicHospital", this.ruleForm.hospital)
-						sessionStorage.setItem("Nid", this.ruleForm.Nid)
+						sessionStorage.setItem("Nid", this.ruleForm.id)
 						sessionStorage.setItem("data", JSON.stringify(this.ruleForm))
 						console.log(this.ruleForm.name)
 						axios({

@@ -215,25 +215,11 @@
 
 			};
 		},
-		created() {
-			this.getNewsList(),
-				this.getAreaList()
-		},
-
 		mounted() {
 			this.userName = sessionStorage.getItem("userName")
 		},
 
 		methods: {
-			// send() {
-			// 	// Event.$emit('data-name', this.name);
-			// 	Event.$emit('data-num', this.num);
-			// 	// Event.$emit('data-check', this.check);
-			// 	// Event.$emit('data-method', this.method);
-			// 	// Event.$emit('data-purchase', this.purchase);
-			// 	// Event.$emit('data-id', this.id);
-			// 	// Event.$emit('data-place', this.place);
-			// },
 			handleChange(value) {
 				console.log(value);
 			},
@@ -243,38 +229,6 @@
 				console.log(item);
 				console.log(this.formData.place[0])
 			},
-			getNewsList() {
-				console.log(this.$props)
-				//  axios.get('/api/get/news').then(res=>{
-				//  	this.list=res.data.list
-				// this.num=res.data.list[0].num
-				// this.check=res.data.list[0].time
-				// this.method=res.data.list[0].method
-				// this.name=res.data.list[0].name
-				// this.id=res.data.list[0].id
-				// this.purchase=res.data.list[0].purchase
-				// this.place=res.data.list[0].place
-				// console.log(res)
-				//  })
-				// this.$axios.post('/ess_team11/login', {
-				// 		uname: this.formData.num,
-				// 		upass: this.formData.check
-				// 	})
-				// 	.then(result => {
-				// 		console.log(result.data)
-				// 		this.formData.msg = result.data.msg
-				// 	})
-				// 	.catch(err => {
-				// 		console.log(err)
-				// 	})
-			},
-			getAreaList() {
-				// axios.get('/api/get/area').then(res => {
-				// 	this.formData.options = res.data.list
-				// 	console.log(res)
-				// })
-			},
-
 			submit() {
 				this.formData.id = Math.round(Math.random() * 50000) // 生成0~50000的随机整数
 				// this.$router.push('/my_book/'+ this.userName)
@@ -301,23 +255,13 @@
 							uid: sessionStorage.getItem("uid"),
 							mnumber: this.formData.num,
 							rid:this.formData.id,
-							// uname: sessionStorage.getItem("userName"),
-							// truename: this.ruleForm.name,
-							// sex: this.ruleForm.sex,
-							// utel: this.ruleForm.pnumber,
-							// email: this.ruleForm.email,
-							// pnumber: this.ruleForm.unumber,
-							// identity: this.ruleForm.region,
-							// country: this.ruleForm.address,
-							// uid:this.ruleForm.uid,
-							//    upass:sessionStorage.getItem("userPass"),
 						}
 					}).then(result => {
 						console.log("Mask reservation successful!!")
 						console.log(result.data)
 						this.formData.msg = result.data
 						if (this.formData.msg == 1) {
-							alert('submit!');
+							alert('Mask reservation successful!!');
 							this.$router.push("/success/" + sessionStorage.getItem("userName"));
 						} else {
 							console.log(this.formData.data)

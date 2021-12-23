@@ -99,7 +99,6 @@
 									upass: this.ruleForm.pass,
 								}
 							}).then(result => {
-								console.log("Login successful!!!")
 								console.log(result.data)
 								this.msg = result.data.msg
 								this.uid = result.data.uid
@@ -107,9 +106,9 @@
 									alert('Login successful!!!');
 									this.$router.push("/main/" + this.ruleForm.user);
 								} else {
+                  console.log('error submit!!');
 									alert('Wrong password or username!!!');
 									console.log(this.ruleForm.user)
-									console.log('error submit!!');
 									return false;
 								}
 								//将用户名和token放入sessionStorage

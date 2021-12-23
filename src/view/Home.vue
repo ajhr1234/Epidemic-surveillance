@@ -3,7 +3,7 @@
 		<header>
 			<div class="head">
 				<div class="logo">
-					<img src="../images/logo.png" alt="" picT>
+					<img src="../images/logo.png" style="width: 40px; margin-top: 3px;" alt="" picT>
 				</div>
 
 				<div id="we">
@@ -27,11 +27,14 @@
               <router-link class="item" :to="'/main/'+ userName" style="float: left;">
               Subscribe
               </router-link>
-							<router-link style="float: left;" class="item" to="/login_index" >
+<!-- 							<router-link style="float: left;" class="item" to="/login_index" @click="exit()">
+							[exit]
+							</router-link> -->
+							<router-link style="float: left;" class="item" to="/login_index">
 							[exit]
 							</router-link>
               <div class="person">
-              	<router-link class="item" to="/user"><img src="../images/person.png" alt=""></router-link>
+              	<router-link class="item" to="/user"><img src="../images/person.png" alt="" style="width: 50px; margin-top: -5px;"></router-link>
               </div>
 
 
@@ -47,6 +50,8 @@
 	</div>
 </template>
 <script>
+	import axios from 'axios';
+	import Qs from 'qs'
 	export default {
 		data() {
 			return {
@@ -85,6 +90,29 @@
 				]
 			}
 		},
+		// methods:{
+		// 	exit(){
+		// 		axios({
+		// 				url: 'http://4485357db8.zicp.vip/exit',
+		// 				method: 'post',
+		// 				transformRequest: [function(data) {
+		// 					// 对 data 进行任意转换处理
+		// 					return Qs.stringify(data)
+		// 				}],
+		// 				headers: {
+		// 					'deviceCode': 'A95ZEF1-47B5-AC90BF3',
+		// 					'satoken':sessionStorage.getItem("userTokenValue")
+		// 				},
+		// 				data: {
+		// 					uid: sessionStorage.getItem("uid"),
+		// 				}
+		// 			}).then(result => {
+		// 			})
+		// 			.catch(err => {
+		// 				console.log(err)
+		// 			})
+		// 	}
+		// },
 		computed:{
 			 isLogin(){
          this.userName=sessionStorage.getItem("userName");
@@ -117,7 +145,7 @@
 		height: 49px;
 		line-height: 49px;
 		margin-top: -50px;
-		border-bottom: 1px solid #000;
+		border-bottom: 1px solid rgb(111, 111, 111);
     width: 1510px;
 	}
 
@@ -134,7 +162,7 @@
 
 	.item {
     /* background-color: #000000; */
-		color: #000000;
+		color: rgb(111, 111, 111);
 		/* margin: 20px; */
     margin-left: 50px;
 		text-decoration-line: none;
@@ -169,7 +197,7 @@
 
 	#we {
     white-space:nowrap;
-		color: #000000;
+		color: rgb(111, 111, 111);
 		float: left;
 		margin-left: 1.5%;
 		font-style: italic;

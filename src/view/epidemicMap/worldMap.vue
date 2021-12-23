@@ -421,7 +421,7 @@ export default {
   }
 
 .index_switch_buttons {
-  width: 100%;
+  width: 98%;
   display: flex;
   border-radius: 10px;
   background: #ddd;
@@ -444,7 +444,7 @@ export default {
   padding: 10px;
   display: flex;
   flex: 1;
-  width: 100%;
+  width: 98%;
 }
 .number_block {
   width: 100%;

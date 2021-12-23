@@ -124,7 +124,7 @@ p {
   position: absolute;
   width: 80%;
   height: 250px;
-  background-color: #2f9aa1;
+  background-color: rgb(144, 195, 216, 0.97);
   bottom: 0;
   right: 0;
   }

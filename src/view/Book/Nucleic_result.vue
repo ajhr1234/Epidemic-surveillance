@@ -2,7 +2,7 @@
 	<div id="main" style=" color:#000000;">
 		<div id="header">
 			<el-button type="text" icon="el-icon-caret-left" style="float: left;display: inline-block; margin-left: -400px; margin-top: 30px;">
-				<router-link :to="'/main/'+ userName" id="main1">BACK</router-link>
+				<router-link to='/MV' id="main1">BACK</router-link>
 			</el-button>
       <img src="../../images/acid2.png" style="width: 50px; float: left; margin-left: 100px;"/>
 			<p style="display: inline-block; float: left; margin-left: 20px;">Nucleic acid information</p>
@@ -115,7 +115,7 @@
 				this.Type=sessionStorage.getItem("region")
 				this.INumber=sessionStorage.getItem("unumber")
 				this.Phone = sessionStorage.getItem("pnumber");
-				this.Address=sessionStorage.getItem("NucleicAddress")
+				this.Address=sessionStorage.getItem("address")
 				this.Hospital=sessionStorage.getItem("NucleicHospital")
 				this.NDate=sessionStorage.getItem("NucleicDate")
 				this.Nid = sessionStorage.getItem("Nid");
