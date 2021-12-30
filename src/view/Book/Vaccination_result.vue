@@ -93,7 +93,8 @@
 				</div>
 				<el-divider></el-divider>
 				<div id="right" style="margin-left: -30px;">
-					<img src="../../images/1628581253.png" style="width: 80%;">
+					<!-- <img src="../../images/1628581253.png" style="width: 80%;"> -->
+					<qrCode :mid="mid"></qrCode>
 				</div>
 
 			</div>
@@ -104,6 +105,7 @@
 
 <script>
 	import Event from '../../components/Event.js';
+	import qrCode from './qrCode'
 	export default {
 		data() {
 			return {
@@ -119,9 +121,15 @@
 				num:"",
 				brand:"",
 				formData: null,
+				mid: 0
 			}
 		},
+		components:{
+			qrCode
+		},
 		created() {
+			var mid=location.href.split("=")[1]
+			this.mid = mid;
 			this.userName = sessionStorage.getItem("userName")
 			this.getNewsList()
 		},
@@ -176,7 +184,7 @@
 		width:400px;
 		margin-left: 38%;
 		background-color: #66b0b5;
-		height: 1100px;
+		height: 1150px;
 		width: 500px;
 		border: 3px solid #7fbbca;
 		border-top: none;

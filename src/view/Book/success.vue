@@ -11,7 +11,8 @@
 		<div id="content">
 			<h1>The appointment is submitted.</h1>
 			<p>You can check the appointment information in my appointment.<br>Please show the following QR code when purchasing on site.</p>
-			<img src="../../images/1628581253.png" style="width:50%;">
+			<!-- <img src="../../images/1628581253.png" style="width:50%;"> -->
+			<qrCode :mid="mid"></qrCode>
 			<br>
 			<el-button type="primary" style="margin-top:30px; background-color: #E2762D; border-radius: 40px;" @click.native="send">
 				<router-link  :to="'/my_book/'+userName" id="guide">Check result</router-link>
@@ -26,6 +27,7 @@
 </template>
 
 <script>
+    import qrCode from './qrCode'
 	import Event from '../../components/Event.js';
 	export default {
 		data() {
@@ -37,8 +39,12 @@
 				check: "",
 				num: 0,
 				purchase: "",
-				id: ""
+				id: "",
+				mid: 0
 			}
+		},
+		components:{
+			qrCode
 		},
 		methods: {
 			send() {
@@ -50,6 +56,10 @@
 				Event.$emit('data-id', this.id);
 				Event.$emit('data-place', this.place);
 			},
+		},
+		created() {
+			var mid=location.href.split("=")[1]
+			this.mid = mid;
 		},
 		mounted() {
 			this.userName = sessionStorage.getItem("userName")

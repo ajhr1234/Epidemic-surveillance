@@ -231,7 +231,7 @@
 								this.msg = result.data.msg
 								if (this.msg == 1) {
 									alert('Personal information changed successfully');
-									this.$router.push("/main/" + this.ruleForm.user);
+									this.$router.push("/ucon");
 								} else {
 									alert('Failed to change personal information!!');
 									console.log(this.ruleForm.user)

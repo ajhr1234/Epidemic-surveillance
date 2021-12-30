@@ -65,7 +65,8 @@
 				</div>
 				<el-divider></el-divider>
 				<div id="right" style="margin-left: -50px;">
-					<img src="../../images/1628581253.png" style="width: 80%;">
+					<!-- <img src="../../images/1628581253.png" style="width: 80%;"> -->
+					<qrCode :mid="mid"></qrCode>
 				</div>
 
 			</div>
@@ -75,6 +76,7 @@
 </template>
 
 <script>
+	import qrCode from './qrCode'
 	import Event from '../../components/Event.js';
 	export default {
 		data() {
@@ -87,13 +89,18 @@
 				num:0,
 				purchase:"Yes",
 				id:"",
-
+				mid: 0,
 				formData: null,
 			}
 		},
 		created() {
+			var mid=location.href.split("=")[1]
+			this.mid = mid;
 			this.userName = sessionStorage.getItem("userName")
 			this.getNewsList()
+		},
+		components:{
+			qrCode
 		},
 		methods:{
 			getNewsList(){
